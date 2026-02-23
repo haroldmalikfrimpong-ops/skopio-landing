@@ -60,8 +60,7 @@ export default function Home() {
     e?.preventDefault();
     if (!email.includes('@')) return;
     setLoading(true);
-    // Store email - for now just simulate, replace with Firebase later
-    await new Promise(r => setTimeout(r, 600));
+    await fetch('https://formspree.io/f/mgolpvyg', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
     setSubmitted(true);
     setLoading(false);
   };
